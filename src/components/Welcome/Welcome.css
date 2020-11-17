@@ -1,0 +1,45 @@
+.jumbotron{
+    position: relative;
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    object-fit: cover;
+    background-image: url(https://images.unsplash.com/photo-1517770413964-df8ca61194a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+}
+.jumbotron > .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+.welcomeContainer{
+    position: absolute;
+    z-index: 3;
+}
+.welcomeContainer h1{
+    font-size: 50px;
+}
+.welcomeContainer p{
+    font-size: 20px;
+}
+.button{
+    margin-top: 10px;
+    background-color:#720026!important;
+    border: 2px solid #720026!important;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+.badge{
+    background-color: #720026;
+    padding: 7px;
+    font-size:15px;
+}

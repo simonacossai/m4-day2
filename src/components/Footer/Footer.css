@@ -1,0 +1,13 @@
+.footer{
+    background-color:#720026!important;
+    width: 100%;
+    margin: 0!important;   
+}
+.footer-link{
+    color: rgb(238, 238, 238)!important;
+}
+
+p{
+    padding: 0;
+    margin:0;
+}
