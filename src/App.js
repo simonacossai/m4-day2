@@ -9,7 +9,7 @@ import Books from "./components/LatestBooks/Books";
 function App() {
   return (
        <>
-        <Navbar title="Strive" />
+        <Navbar title="Strive"/>
         <Welcome/>
         <Books/>
         <Footer />
