@@ -7,24 +7,35 @@ import history from "../../data/history.json";
 import scifi from '../../data/scifi.json';
 
 
+
 class Books extends React.Component {
     state = {
-        book: horror,
+        book: [],
+
     };
-
-    changeCategory = (event) => {
-        if (event.currentTarget.value === "horror") {
-            this.setState({ book: horror });
-        } else if (event.currentTarget.value === "romance") {
-            this.setState({ book: romance });
-        } else if (event.currentTarget.value === "history") {
-            this.setState({ book: history });
-        } else if (event.currentTarget.value === "sci-fi") {
-            this.setState({ book: scifi });
-
+    fetchBooks = async (e) => {
+     try {
+        let response = await fetch(`http://localhost:3001/books`,
+            {
+                method: 'GET',
+            })
+        if (response.ok) {
+            console.log(response);
+           let data = await response.json();
+           this.setState({book: data})
+        } else {
+            console.log('an error occurred')
+            let error = await response.json()
+           console.log(error);
         }
-    };
-
+    } catch (e) {
+        console.log(e) 
+    }
+    }
+    componentDidMount(){
+        this.fetchBooks();
+    }
+    
     render() {
         return (
             <div>
@@ -44,7 +55,7 @@ class Books extends React.Component {
                     <Row className="justify-content-start mt-3">
                         {this.state.book.map((book) => (
                             <Col className="mt-3" key={book.asin} >
-                                <Card style={{ width: '18rem' }} className="card">
+                                <Card style={{ width: '18rem' }} className="card" onClick={() =>this.props.props.history.push('/addcomment/' + book.asin)}>
                                     <Card.Img variant="top" src={book.img} className="books-image" />
                                     <Card.Body>
                                         <Card.Title className="title" >{book.title}</Card.Title>
@@ -64,5 +75,4 @@ class Books extends React.Component {
 }
 
 export default Books;
-
 
