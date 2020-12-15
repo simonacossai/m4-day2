@@ -1,10 +1,6 @@
 import React from 'react';
 import './Books.css';
 import { Container, Row, Col, Card, Badge } from "react-bootstrap";
-import horror from "../../data/horror.json";
-import romance from "../../data/romance.json";
-import history from "../../data/history.json";
-import scifi from '../../data/scifi.json';
 
 
 
@@ -15,7 +11,7 @@ class Books extends React.Component {
     };
     fetchBooks = async (e) => {
      try {
-        let response = await fetch(`http://localhost:3001/books`,
+        let response = await fetch(`${process.env.REACT_APP_API_URL}/books`,
             {
                 method: 'GET',
             })

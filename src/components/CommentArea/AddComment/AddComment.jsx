@@ -23,7 +23,7 @@ class AddComment extends React.Component {
         this.setState({ loading: true })
         console.log(this.state.comment)
         try {
-            let response = await fetch(`http://localhost:3001/books/${this.state.elementId}/comments`,
+            let response = await fetch(`${process.env.REACT_APP_API_URL}/books/${this.state.elementId}/comments`,
                 {
                     method: 'POST',
                     body: JSON.stringify(this.state.comment),
@@ -55,7 +55,7 @@ class AddComment extends React.Component {
 
     getComment = async (e) => {
         try {
-            let response = await fetch(`http://localhost:3001/books/${this.state.elementId}/comments`,
+            let response = await fetch(`${process.env.REACT_APP_API_URL}/books/${this.state.elementId}/comments`,
                 {
                     method: 'GET',
                 })
